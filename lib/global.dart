@@ -11,10 +11,10 @@ class Global {
   static Future init() async {
     WidgetsFlutterBinding.ensureInitialized();
     await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
-    setSystemUi();
+    // setSystemUi();
     Loading();
     await Get.putAsync<StorageService>(() => StorageService().init());
-    Get.put<ConfigStore>(ConfigStore());
+    Get.put<AppStore>(AppStore());
     Get.put<UserStore>(UserStore());
   }
 

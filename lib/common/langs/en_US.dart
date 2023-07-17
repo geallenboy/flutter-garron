@@ -1,4 +1,10 @@
 const Map<String, String> en_US = {
-  'title': 'This is Title!',
-  'login': 'logged in as @name with email @email',
+  'title': 'I am Chinese',
+  'content': 'Im from Jiangsu',
+  'theme': 'theme',
+  'language': 'language',
+  'about': 'about',
+  'tab_home': 'home',
+  'tab_product': 'product',
+  'tab_my': 'my',
 };

@@ -1,7 +1,7 @@
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
+import 'package:garron/common/themes/app_theme.dart';
+import 'package:garron/store/app.dart';
 import 'package:get/get.dart';
-import 'package:garron/common/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:remixicon/remixicon.dart';
 
@@ -13,9 +13,6 @@ class NavigationBarView extends GetView<NavigationBarController> {
   @override
   Widget build(BuildContext context) {
     ThemeData appTheme = Theme.of(context);
-
-    /// 默认状态 为关闭
-    ValueNotifier<DrawerState> drawerState = ValueNotifier(DrawerState.closed);
 
     return Scaffold(
       body: PageView(
@@ -57,7 +54,7 @@ class NavigationBarView extends GetView<NavigationBarController> {
                   tabs: [
                     Tab(
                       key: const Key("tab_home"),
-                      text: 'home',
+                      text: 'tab_home'.tr,
                       icon: Icon(
                         Remix.home_line,
                         size: 20.sp,
@@ -65,7 +62,7 @@ class NavigationBarView extends GetView<NavigationBarController> {
                     ),
                     Tab(
                       key: const Key("tab_mood"),
-                      text: 'home2',
+                      text: 'tab_product'.tr,
                       icon: Icon(
                         Remix.heart_3_line,
                         size: 20.sp,
@@ -73,7 +70,7 @@ class NavigationBarView extends GetView<NavigationBarController> {
                     ),
                     Tab(
                       key: const Key("tab_statistic"),
-                      text: 'home3',
+                      text: 'tab_my'.tr,
                       icon: Icon(
                         Remix.bar_chart_line,
                         size: 20.sp,
@@ -88,11 +85,16 @@ class NavigationBarView extends GetView<NavigationBarController> {
                   key: const Key("tab_screen_left"),
                   child: DecoratedBox(
                     decoration: BoxDecoration(
-                      gradient: const LinearGradient(
-                        colors: [
-                          Colors.black12,
-                          Colors.black12,
-                        ],
+                      gradient: LinearGradient(
+                        colors: AppStore().isDarkMode()
+                            ? [
+                                Colors.black12,
+                                Colors.black12,
+                              ]
+                            : [
+                                AppTheme.backgroundColor1,
+                                AppTheme.backgroundColor1,
+                              ],
                       ),
                       borderRadius: BorderRadius.only(
                         topRight: Radius.circular(14.sp),
@@ -105,17 +107,14 @@ class NavigationBarView extends GetView<NavigationBarController> {
                       child: Icon(
                         Remix.arrow_right_line,
                         size: 14.sp,
-                        color: const Color(0xFFEFEFEF),
+                        color: AppStore().isDarkMode()
+                            ? const Color(0xFFEFEFEF)
+                            : Colors.black,
                       ),
                     ),
                   ),
                   onTap: () {
-                    print(1111);
                     controller.toggleDrawer();
-
-                    /// 侧栏
-                    // vibrate();
-                    // ZoomDrawer.of(context)?.toggle.call();
                   },
                 ),
               ),
@@ -126,19 +125,6 @@ class NavigationBarView extends GetView<NavigationBarController> {
     );
   }
 
-// BottomNavigationBar(
-//             backgroundColor: Colors.white,
-//             unselectedItemColor: AppColor.secondaryText,
-//             selectedItemColor: AppColor.primaryText,
-//             onTap: (index) => _onJumpTo(index),
-//             currentIndex: controller.currentIndex.value,
-//             type: BottomNavigationBarType.fixed,
-//             items: const [
-//               BottomNavigationBarItem(icon: Icon(Icons.home), label: "首页"),
-//               BottomNavigationBarItem(icon: Icon(Icons.grid_view), label: "课程"),
-//               BottomNavigationBarItem(icon: Icon(Icons.person), label: "我的")
-//             ],
-//           )
   _onJumpTo(int index) {
     controller.controller.jumpToPage(index);
     controller.currentIndex.value = index;
