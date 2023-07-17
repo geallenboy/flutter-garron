@@ -8,7 +8,6 @@ import 'package:package_info/package_info.dart';
 class ConfigStore extends GetxController {
   static ConfigStore get to => Get.find();
 
-  bool isFirstOpen = false;
   PackageInfo? _platform;
   String get version => _platform?.version ?? '-';
   bool get isRelease => bool.fromEnvironment("dart.vm.product");
@@ -21,17 +20,10 @@ class ConfigStore extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    print(StorageService.to.getBool(STORAGE_DEVICE_FIRST_OPEN_KEY));
-    isFirstOpen = StorageService.to.getBool(STORAGE_DEVICE_FIRST_OPEN_KEY);
   }
 
   Future<void> getPlatform() async {
     _platform = await PackageInfo.fromPlatform();
-  }
-
-  // 标记用户已打开APP
-  Future<bool> saveAlreadyOpen() {
-    return StorageService.to.setBool(STORAGE_DEVICE_FIRST_OPEN_KEY, true);
   }
 
   void onInitLocale() {
