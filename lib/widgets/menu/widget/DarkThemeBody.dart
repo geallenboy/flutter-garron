@@ -17,8 +17,6 @@ class _DarkThemeBodyState extends State<DarkThemeBody> {
   @override
   Widget build(BuildContext context) {
     return GetBuilder<AppStore>(builder: (config) {
-      // final themeMode = AppStore().themeMode;
-      // print('${AppStore.to.themeMode}==themeMode==>111');
       return Wrap(
         alignment: WrapAlignment.center,
         direction: Axis.horizontal,

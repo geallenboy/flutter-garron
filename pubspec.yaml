@@ -85,16 +85,6 @@ flutter:
   assets:
     - assets/
     - assets/images/
-    - assets/images/onboarding/
-    - assets/images/woolly/
-    - assets/3d/city/
-    - assets/images/game/mini_fantasy/
-    - assets/images/game/mini_fantasy/tiles/
-    - assets/images/game/mini_game/
-    - assets/images/game/mini_game/tiles/
-    - assets/images/game/mini_game/enemy/orc/
-    - assets/images/game/mini_game/enemy/boss/
-    - assets/images/game/mini_game/player/human/
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 
