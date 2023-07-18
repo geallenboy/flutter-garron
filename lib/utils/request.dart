@@ -5,7 +5,7 @@ import 'package:garron/store/user.dart';
 
 /// dio网络请求配置表 自定义
 class DioConfig {
-  static const baseURL = "https://ascs.cnsuning.com/acs"; //域名
+  static const baseURL = ""; //域名
   static const timeout = 10000; //超时时间
 }
 
