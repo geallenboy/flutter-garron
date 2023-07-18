@@ -6,6 +6,7 @@ import 'package:garron/common/themes/multiple_themes_mode/theme_orange.dart';
 import 'package:garron/common/themes/multiple_themes_mode/theme_purple.dart';
 import 'package:garron/common/themes/multiple_themes_mode/theme_red.dart';
 import 'package:garron/common/themes/multiple_themes_mode/theme_yellow.dart';
+import 'package:garron/store/app.dart';
 
 enum AppMultipleThemesMode { light, dark }
 
@@ -40,6 +41,10 @@ Map<String, Map<AppMultipleThemesMode, ThemeData>> appMultipleThemesMode = {
     AppMultipleThemesMode.dark: AppThemePurple.darkTheme,
   }
 };
+ThemeData? getAppThemes() {
+  return AppTheme(AppStore.to.getMultipleThemesMode())
+      .multipleThemesLightMode();
+}
 
 /// 主题基础
 class AppTheme {

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:garron/common/themes/app_theme.dart';
 import 'package:get/get.dart';
-import 'package:garron/common/colors.dart';
 import '../index.dart';
 
 /// 我的课程
@@ -23,16 +23,17 @@ class LessonWidget extends GetView<HomeController> {
               Text(
                 "我的课程",
                 style: TextStyle(
-                    fontSize: 17,
-                    fontWeight: FontWeight.bold,
-                    color: AppColor.primaryText),
+                  fontSize: 17,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black,
+                ),
               ),
               Expanded(
                   child: Padding(
                 padding: EdgeInsets.only(left: 20),
                 child: Text(
                   "2023-07-07~2023-07-08",
-                  style: TextStyle(fontSize: 14, color: AppColor.secondaryText),
+                  style: TextStyle(fontSize: 14, color: Colors.black),
                 ),
               )),
               Text("更多 >", style: TextStyle(fontSize: 14)),

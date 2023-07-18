@@ -2,9 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:garron/common/storage.dart';
 import 'package:garron/common/themes/app_theme.dart';
 import 'package:garron/services/index.dart';
-
 import 'package:get/get.dart';
-import 'package:package_info/package_info.dart';
 
 class AppStore extends GetxController {
   static AppStore get to => Get.find();
@@ -14,18 +12,13 @@ class AppStore extends GetxController {
 
   /// 多主题模式颜色设置
   String multipleThemesMode = "default";
-  PackageInfo? _platform;
-  String get version => _platform?.version ?? '-';
+
   Locale locale = const Locale('zh', 'CN');
 
   @override
   void onInit() {
     super.onInit();
     onInitLocale();
-  }
-
-  Future<void> getPlatform() async {
-    _platform = await PackageInfo.fromPlatform();
   }
 
   ///设置主题模式
