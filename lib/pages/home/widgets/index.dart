@@ -1,4 +1,4 @@
 library widgets;
 
-export 'banner.dart';
-export 'lesson.dart';
+export 'avater.dart';
+export 'search.dart';

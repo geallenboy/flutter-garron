@@ -1,31 +1,64 @@
+import 'package:easy_refresh/easy_refresh.dart';
 import 'package:flutter/material.dart';
-import 'package:garron/common/themes/app_theme.dart';
-import 'package:garron/store/app.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:garron/common/themeSize.dart';
+import 'package:garron/common/themeStyle.dart';
+import 'package:garron/pages/home/widgets/swiper.dart';
+import 'package:garron/pages/home/widgets/topNavigators.dart';
 import 'package:get/get.dart';
 import 'index.dart';
 import 'widgets/index.dart';
 
 class HomeView extends GetWidget<HomeController> {
   const HomeView({super.key});
+
   @override
   Widget build(BuildContext context) {
-    print(AppTheme(AppStore.to.getMultipleThemesMode())
-        .multipleThemesLightMode());
     return Container(
         width: MediaQuery.of(context).size.width,
-        padding: const EdgeInsets.fromLTRB(10, 40, 10, 20),
+        padding: ThemeStyle.paddingBox,
         child: Column(children: [
-          Text(
-            'title'.tr,
-            style: TextStyle(fontSize: 16),
+          Container(
+            alignment: Alignment.centerLeft,
+            width: MediaQuery.of(context).size.width -
+                ThemeSize.containerPadding * 2,
+            margin: ThemeStyle.margin,
+            decoration: ThemeStyle.boxDecoration,
+            child: Padding(
+              padding: ThemeStyle.padding,
+              child: Row(
+                children: <Widget>[
+                  AvaterWidget(size: ThemeSize.middleAvater),
+                  Expanded(
+                      flex: 1,
+                      child: Padding(
+                          padding: EdgeInsets.only(left: ThemeSize.smallMargin),
+                          child: SearchWidget(classify: "电影")))
+                ],
+              ),
+            ),
           ),
-          Text(
-            '${getAppThemes()?.primaryColor}',
-            style: TextStyle(color: getAppThemes()?.primaryColor),
-          )
-          // Expanded(
-          //   child: LessonWidget(),
-          // )
+          Expanded(
+              flex: 1,
+              child: EasyRefresh(
+                  footer: MaterialFooter(),
+                  onLoad: () async {
+                    print('已经到底了');
+                    controller.getCategoryItem();
+                  },
+                  child: ListView(
+                    children: [
+                      Column(
+                        children: [
+                          SwiperWidget(classify: "电影"),
+                          TopNavigatorsWidget(),
+                        ],
+                      ),
+                      Column(
+                        children: controller.categoryList,
+                      )
+                    ],
+                  )))
         ]));
   }
 }

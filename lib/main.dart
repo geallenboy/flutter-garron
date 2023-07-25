@@ -37,7 +37,7 @@ class MyApp extends GetView<AppStore> {
               footerTriggerDistance: 150,
               child: GetBuilder<AppStore>(builder: (config) {
                 return GetMaterialApp(
-                  title: '家长端',
+                  title: '电影',
                   // theme: AppTheme.light,
                   debugShowCheckedModeBanner: false,
                   initialRoute: AppPages.INITIAL,

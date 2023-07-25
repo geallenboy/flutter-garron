@@ -20,11 +20,12 @@ class MineController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    asyncLoadDate();
   }
 
   @override
-  void onReady() {}
+  void onReady() {
+    asyncLoadDate();
+  }
 
   @override
   void onClose() {}

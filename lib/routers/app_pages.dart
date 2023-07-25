@@ -20,6 +20,7 @@ class AppPages {
       binding: NavigationBarBinding(),
     ),
     GetPage(
+      title: '首页',
       name: AppRoutes.home,
       page: () => const HomeView(),
       binding: HomeBinding(),
@@ -30,6 +31,7 @@ class AppPages {
       binding: NavigationBarBinding(),
     ),
     GetPage(
+      title: '登陆',
       name: AppRoutes.login,
       page: () => const LoginView(),
     ),
@@ -44,6 +46,7 @@ class AppPages {
       binding: GoodsCateBinding(),
     ),
     GetPage(
+      title: '我的',
       name: AppRoutes.mime,
       page: () => const MimeView(),
       binding: MineBinding(),

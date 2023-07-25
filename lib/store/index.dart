@@ -1,4 +1,4 @@
 library store;
 
-export './user.dart';
+export 'user.dart';
 export 'app.dart';
