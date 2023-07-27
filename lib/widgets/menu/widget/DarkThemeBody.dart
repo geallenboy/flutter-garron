@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:garron/common/config.dart';
 import 'package:garron/store/app.dart';
 import 'package:garron/widgets/menu/widget/DarkThemeCard.dart';
 import 'package:get/get.dart';

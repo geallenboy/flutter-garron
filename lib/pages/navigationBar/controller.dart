@@ -35,6 +35,7 @@ class NavigationBarController extends GetxController
   );
 
   void changeTabIndex(index) {
+    controller.jumpToPage(index);
     currentIndex.value = index;
     update();
   }

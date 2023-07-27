@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
 import 'package:garron/pages/navigationBar/index.dart';
-import 'package:garron/store/app.dart';
 import 'package:garron/widgets/menu/index.dart';
 import 'package:get/get.dart';
 
@@ -27,8 +26,6 @@ class ApplicationView extends GetView<NavigationBarController> {
       closeCurve: Curves.bounceIn,
       style: DrawerStyle.defaultStyle,
       menuBackgroundColor: Theme.of(context).primaryColor,
-      // menuBackgroundColor:
-      //     AppStore().isDarkMode() ? Colors.black26 : Colors.white38,
     );
   }
 }

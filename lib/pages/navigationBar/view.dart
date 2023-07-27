@@ -17,7 +17,6 @@ class NavigationBarView extends GetView<NavigationBarController> {
     return Scaffold(
       body: PageView(
         controller: controller.controller,
-        onPageChanged: (index) => _onJumpTo(index),
         physics: const NeverScrollableScrollPhysics(),
         children: controller.pages,
       ),
@@ -36,47 +35,49 @@ class NavigationBarView extends GetView<NavigationBarController> {
             alignment: Alignment.centerLeft,
             children: [
               TabBar(
-                  // 震动或声音反馈
-                  enableFeedback: true,
-                  padding: EdgeInsets.only(left: 40.w, right: 0.w),
-                  controller: controller.pageController,
-                  indicatorColor: Colors.transparent,
-                  labelStyle: TextStyle(
-                    height: 0.5.h,
-                    fontSize: 10.sp,
-                    fontWeight: FontWeight.bold,
+                // 震动或声音反馈
+                enableFeedback: true,
+                padding: EdgeInsets.only(left: 40.w, right: 0.w),
+                controller: controller.pageController,
+                indicatorColor: Colors.transparent,
+                labelStyle: TextStyle(
+                  height: 0.5.h,
+                  fontSize: 10.sp,
+                  fontWeight: FontWeight.bold,
+                ),
+                unselectedLabelStyle: TextStyle(
+                  height: 0.5.h,
+                  fontSize: 10.sp,
+                  fontWeight: FontWeight.bold,
+                ),
+                tabs: [
+                  Tab(
+                    key: const Key("tab_home"),
+                    text: 'tab_home'.tr,
+                    icon: Icon(
+                      Remix.home_line,
+                      size: 20.sp,
+                    ),
                   ),
-                  unselectedLabelStyle: TextStyle(
-                    height: 0.5.h,
-                    fontSize: 10.sp,
-                    fontWeight: FontWeight.bold,
+                  Tab(
+                    key: const Key("tab_mood"),
+                    text: 'tab_product'.tr,
+                    icon: Icon(
+                      Remix.heart_3_line,
+                      size: 20.sp,
+                    ),
                   ),
-                  tabs: [
-                    Tab(
-                      key: const Key("tab_home"),
-                      text: 'tab_home'.tr,
-                      icon: Icon(
-                        Remix.home_line,
-                        size: 20.sp,
-                      ),
+                  Tab(
+                    key: const Key("tab_statistic"),
+                    text: 'tab_my'.tr,
+                    icon: Icon(
+                      Remix.bar_chart_line,
+                      size: 20.sp,
                     ),
-                    Tab(
-                      key: const Key("tab_mood"),
-                      text: 'tab_product'.tr,
-                      icon: Icon(
-                        Remix.heart_3_line,
-                        size: 20.sp,
-                      ),
-                    ),
-                    Tab(
-                      key: const Key("tab_statistic"),
-                      text: 'tab_my'.tr,
-                      icon: Icon(
-                        Remix.bar_chart_line,
-                        size: 20.sp,
-                      ),
-                    ),
-                  ]),
+                  ),
+                ],
+                onTap: (index) => controller.changeTabIndex(index),
+              ),
               // 侧栏
               Semantics(
                 button: true,
@@ -123,10 +124,5 @@ class NavigationBarView extends GetView<NavigationBarController> {
         ),
       ),
     );
-  }
-
-  _onJumpTo(int index) {
-    controller.controller.jumpToPage(index);
-    controller.currentIndex.value = index;
   }
 }

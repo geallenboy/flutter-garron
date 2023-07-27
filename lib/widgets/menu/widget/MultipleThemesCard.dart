@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:garron/common/config.dart';
 import 'package:garron/store/app.dart';
 import 'package:garron/widgets/animation/animation.dart';
-import 'package:get/get.dart';
 import 'package:remixicon/remixicon.dart';
 
 /// 多主题卡片

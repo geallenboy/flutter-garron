@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-
-///
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:garron/common/langs/translation_service.dart';
 import 'package:garron/store/app.dart';
