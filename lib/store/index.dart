@@ -1,4 +1,4 @@
 library store;
 
 export './user.dart';
-export './config.dart';
+export 'app.dart';

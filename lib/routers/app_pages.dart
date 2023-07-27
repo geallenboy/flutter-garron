@@ -1,43 +1,33 @@
+import 'package:garron/pages/application/bindings.dart';
+import 'package:garron/pages/application/view.dart';
 import 'package:garron/pages/login/view.dart';
 import 'package:garron/pages/course/index.dart';
-import 'package:garron/pages/welcome/index.dart';
 import 'package:garron/pages/goods_cate/index.dart';
 import 'package:garron/pages/mine/index.dart';
 import 'package:get/get.dart';
-
 import 'package:garron/pages/home/index.dart';
-import 'package:garron/middlewares/index.dart';
-import 'package:garron/pages/index/index.dart';
+import 'package:garron/pages/navigationBar/index.dart';
 import 'index.dart';
 
 class AppPages {
-  static const INITIAL = AppRoutes.welcome;
+  static const INITIAL = AppRoutes.application;
   static const INITIALLOGIN = AppRoutes.login;
   static List<String> history = [];
   static final routers = [
     GetPage(
-      name: AppRoutes.index,
-      page: () => const IndexView(),
-      binding: IndexBinding(),
-      middlewares: [
-        RouteAuthMiddleware(priority: 1),
-      ],
-    ),
-    GetPage(
-      name: AppRoutes.welcome,
-      page: () => const WelcomeView(),
-      binding: WelcomeBinding(),
-      middlewares: [
-        RouteWelcomeMiddleware(priority: 1),
-      ],
+      name: AppRoutes.navigationBar,
+      page: () => const NavigationBarView(),
+      binding: NavigationBarBinding(),
     ),
     GetPage(
       name: AppRoutes.home,
       page: () => const HomeView(),
       binding: HomeBinding(),
-      middlewares: [
-        RouteAuthMiddleware(priority: 1),
-      ],
+    ),
+    GetPage(
+      name: AppRoutes.application,
+      page: () => const ApplicationView(),
+      binding: NavigationBarBinding(),
     ),
     GetPage(
       name: AppRoutes.login,
@@ -57,9 +47,6 @@ class AppPages {
       name: AppRoutes.mime,
       page: () => const MimeView(),
       binding: MineBinding(),
-      middlewares: [
-        RouteAuthMiddleware(priority: 1),
-      ],
     ),
   ];
 }

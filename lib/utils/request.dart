@@ -74,7 +74,6 @@ class DioRequest {
       options = Options(
         headers: {
           "content-type": "application/json; charset=utf-8",
-          "appId": "wx451ef24626489257",
           "Authorization": "Bearer ${UserStore.to.token}",
         },
         method: method,
