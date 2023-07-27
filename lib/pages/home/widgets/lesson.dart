@@ -3,8 +3,6 @@ import 'package:get/get.dart';
 import 'package:garron/common/colors.dart';
 import '../index.dart';
 
-// class pText extends
-
 /// 我的课程
 class LessonWidget extends GetView<HomeController> {
   const LessonWidget({super.key});

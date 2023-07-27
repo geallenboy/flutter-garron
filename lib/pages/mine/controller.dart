@@ -20,7 +20,6 @@ class MineController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    asyncLoadDate();
   }
 
   @override

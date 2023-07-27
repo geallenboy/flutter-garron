@@ -4,10 +4,10 @@ import 'package:garron/pages/home/index.dart';
 import 'package:garron/pages/mine/index.dart';
 import 'controller.dart';
 
-class IndexBinding implements Bindings {
+class NavigationBarBinding implements Bindings {
   @override
   void dependencies() {
-    Get.lazyPut<IndexController>(() => IndexController());
+    Get.lazyPut<NavigationBarController>(() => NavigationBarController());
     Get.lazyPut<MineController>(() => MineController());
     Get.lazyPut<HomeController>(() => HomeController());
     Get.lazyPut<CourseController>(() => CourseController());
