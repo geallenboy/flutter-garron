@@ -35,11 +35,11 @@ class DioRequest {
       return handler.next(options);
     }, onResponse: (response, handler) {
       if (response.data["code"] == '403') {
-        UserStore.to.removeStore();
+        UserStore.to.onLogout();
         Get.toNamed("/login");
       }
       if ((response.data["code"] == '401')) {
-        UserStore.to.removeStore();
+        UserStore.to.onLogout();
         Get.toNamed("/login");
       }
       print("================== 响应数据 ==========================");

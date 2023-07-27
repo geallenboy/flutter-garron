@@ -1,6 +1,6 @@
 abstract class AppRoutes {
-  static const application = "/";
-  static const navigationBar = "/navigationBar";
+  static const welcome = "/";
+  static const index = "/index";
   static const login = "/login";
   static const home = "/home";
   static const mime = "/mime";

@@ -13,16 +13,15 @@ class LoginView extends StatefulWidget {
 }
 
 class _LoginIndexState extends State<LoginView> {
-  var code =
-      'eyJhbGciOiJIUzUxMiJ9.eyJsb2dpbl91c2VyX2tleSI6ImM2MjdiMjZmLTdhNmMtNGFkZi04MWQzLWFjNTM1N2FjZDNlYyJ9.dzkmmBYHHP2hftskabnc0Ke7ntWfvHwV9K2-nSS9kBsxVUON37ADOHmhQmKxubMoROuEytpbsVkcGuZCpNgVWg';
-  var appId = 'wx451ef24626489257';
+  var username = '';
+  var password = '';
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          "教师登陆",
+          "登陆",
           style: TextStyle(color: Colors.black),
         ),
         backgroundColor: Colors.transparent, // 背景颜色设置为透明
@@ -49,14 +48,14 @@ class _LoginIndexState extends State<LoginView> {
                       border: Border.all(width: 1.0)),
                   child: TextField(
                       onChanged: (value) {
-                        code = value;
+                        username = value;
                       },
                       decoration: const InputDecoration(
                           icon: Icon(GarronIcons.user),
                           border: InputBorder.none,
-                          hintText: "请输入token"),
+                          hintText: "请输入用户名"),
                       controller: TextEditingController.fromValue(
-                          TextEditingValue(text: code))),
+                          TextEditingValue(text: username))),
                 ),
                 Container(
                   height: 50,
@@ -68,14 +67,14 @@ class _LoginIndexState extends State<LoginView> {
                       border: Border.all(width: 1.0)),
                   child: TextField(
                       onChanged: (value) {
-                        appId = value;
+                        password = value;
                       },
                       decoration: const InputDecoration(
                           icon: Icon(GarronIcons.user),
                           border: InputBorder.none,
                           hintText: "请输入appId"),
                       controller: TextEditingController.fromValue(
-                          TextEditingValue(text: appId))),
+                          TextEditingValue(text: password))),
                 ),
                 Container(
                   height: 50,
@@ -90,24 +89,20 @@ class _LoginIndexState extends State<LoginView> {
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(25.0))))),
                     onPressed: () async {
-                      if (code.isEmpty && appId.isEmpty) {
+                      if (username.isEmpty && password.isEmpty) {
                         showDialog(
                             context: context,
                             builder: (BuildContext context) =>
                                 const AlertDialog(
                                   content: Text(
-                                    "token/appId 不能为空!",
+                                    "用户名/密码 不能为空!",
                                     style: TextStyle(color: Colors.red),
                                   ),
                                 ));
                       } else {
-                        print(code);
-                        // dynamic userProfile = await UserAPI.getUserInfo();
-                        // print(userProfile.data);
-                        UserStore.to.setToken(code);
-                        // UserStore.to.saveProfile(jsonDecode(userProfile));
+                        await UserStore.to.setToken(username);
 
-                        Get.toNamed("/index");
+                        await Get.toNamed("/index");
                       }
                     },
                     child: const Text(
