@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class AppColor {
   /// 页面背景颜色
-  static const Color scaffoldBackground = Color.fromRGBO(28, 71, 65, 1);
+  static const Color scaffoldBackground = Color.fromARGB(255, 255, 255, 255);
 
   /// 主控件-背景 蓝色
   static const Color primaryElement = Color.fromARGB(255, 41, 103, 255);

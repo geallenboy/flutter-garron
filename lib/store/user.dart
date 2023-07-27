@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:garron/common/storage.dart';
 import 'package:garron/services/index.dart';
 
@@ -17,6 +15,7 @@ class UserStore extends GetxController {
   @override
   void onInit() {
     super.onInit();
+
     _token.value = StorageService.to.getString(STORAGE_TOKEN_KEY);
   }
 
